@@ -1,0 +1,110 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+button{
+    border-radius: 3px;
+}
+
+.calculator{
+    max-height: 700px;
+    max-width: 450px;
+    background-color: #444;
+    box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.5);
+    padding: 4rem 0.8rem;
+    border-radius: 10px;
+
+}
+.calculator__result{
+    max-width: 100%;
+    min-height: 50px;
+    text-align: end;
+    margin-bottom: 2rem;
+    background: #ddd;
+    border-radius: 2px;
+    font-size: 2rem;
+    padding: 0.5rem;
+}
+.calculator__wrapper{
+    display: flex;
+    justify-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.calculator__helpers{
+    flex-basis: 100%;
+    display: inherit;
+    justify-content: space-between;
+    gap: 1.18rem;
+}
+.calculator__helpers button{
+    border: none;
+    width: 5.6rem;
+    height: 3.5rem;
+    cursor: pointer;
+    background: orange;
+}
+.calculator__helpers button:last-child {
+    width: 3.6rem;
+}
+
+.calculator__buttons{
+    display: grid;
+    flex-basis: 80%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+}
+
+.calculator__buttons button {
+    border: none;
+    cursor: pointer;
+    padding: 1.2rem 1.7rem;
+    transition: background 0.2s ease-in-out;
+}
+
+.calculator__buttons button:hover{
+    background: #ccc;
+}
+
+.calculator__buttons button:last-child {
+    background-color: red;
+    color: white;
+    font-size: bold;
+}
+
+.calculator__operators{
+    display: inherit;
+    flex-basis: 16%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.calculator__operators button {
+    border: none;
+    cursor: pointer;
+    width: 3.6rem;
+    height: 3.3rem;
+    background-color: orange;
+    line-height: 3rem;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    font-size: 1rem;
+}
+
