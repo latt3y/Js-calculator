@@ -1,7 +1,40 @@
+const calculator = document.querySelector('.calculator');
 const display = document.querySelector('.calculator__result');
 const numbers = document.querySelectorAll('.calculator__buttons button');
 const operators = document.querySelectorAll('.calculator__operators button');
 const helpers = document.querySelectorAll('.calculator__helpers button');
+
+const tiltConfig = {
+    max: 25,
+    perspective: 1000
+};
+
+calculator.addEventListener('mouseenter', onMouseEnter);
+calculator.addEventListener('mousemove', onMouseMove);
+calculator.addEventListener('mouseleave', onMouseLeave);
+
+function onMouseEnter(){
+    calculator.style.transition = 'transform 300ms cubic-bezier(.03,.98,.52,.99)';
+}
+
+function onMouseMove(event){
+    const calcWidth = calculator.offsetWidth;
+    const calcHeight = calculator.offsetHeight;
+    const centerX = calculator.offsetLeft + calcWidth / 2;
+    const centerY = calculator.offsetTop + calcHeight / 2;
+    const mouse = {
+        x: event.clientX - centerX,
+        y: event.clientY - centerY
+    };
+    const rotateX = tiltConfig.max * mouse.y / (calcHeight / 2);
+    const rotateY = (-1) * tiltConfig.max * mouse.x / (calcWidth / 2);
+
+    calculator.style.transform = `perspective(${tiltConfig.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+};
+
+function onMouseLeave(){
+    calculator.style.transform = `perspective(${tiltConfig.perspective}px) rotateX(0deg) rotateY(0deg)`
+};
 
 window.onload = () => initialize();
 
